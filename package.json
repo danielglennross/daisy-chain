@@ -1,0 +1,29 @@
+{
+  "name": "daisychain",
+  "version": "1.0.0",
+  "description": "Create proxy pipeline",
+  "main": "dist/index.js",
+  "scripts": {
+    "compile": "tsc --sourcemap",
+    "lint": "tslint index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielglennross/daisychain.git"
+  },
+  "author": "daniel ross",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danielglennross/daisychain/issues"
+  },
+  "homepage": "https://github.com/danielglennross/daisychain#readme",
+  "devDependencies": {
+    "tslint": "^5.4.3",
+    "typescript": "^2.3.4"
+  },
+  "typings": "dist/index.d.ts",
+  "typescript": {
+    "definition": "dist/index.d.ts"
+  }
+}
