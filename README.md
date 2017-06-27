@@ -4,6 +4,10 @@ Create a pipeline of proxy objects that will wrap over a target object.
 ## Install
 `npm install --save daisy-chain`
 
+```javascript
+const { daisyChain } = require('daisy-chain');
+```
+
 ## API
 
 # daisyChain(proxies, target, prop?)
@@ -27,7 +31,7 @@ foobar(next, ...args)
 
 ## Example (javascript)
 ```javascript
-const daisyChain = require('daisy-chain');
+const { daisyChain } = require('daisy-chain');
 
 class Greeting {
   constructor() {

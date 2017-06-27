@@ -1,6 +1,6 @@
 'use strict';
 
-import daisyChain from '../index';
+import { daisyChain } from '../index';
 
 type PrintFunc = (args: any) => string;
 

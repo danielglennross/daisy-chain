@@ -62,7 +62,7 @@ var ServiceProxy2 = (function (_super) {
     return ServiceProxy2;
 }(Base));
 var service = new Service();
-var proxy = index_1.default([
+var proxy = index_1.daisyChain([
     new ServiceProxy1(),
     new ServiceProxy2(),
 ], service, '__proto__');

@@ -1,6 +1,6 @@
 'use strict';
 
-const daisyChain = require('../index');
+const { daisyChain } = require('../index');
 
 class Base {
   constructor() {

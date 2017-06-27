@@ -1,6 +1,6 @@
 'use strict';
 
-export default function daisyChain<P, T>(
+export function daisyChain<P, T>(
   proxies: P[],
   target: T,
   prop?: string,
@@ -18,7 +18,7 @@ export default function daisyChain<P, T>(
       const effectiveProxies = serviceProxies.filter(s => Boolean(s[propKey]));
 
       // if none, return the original method
-      if (!proxies.length) {
+      if (!effectiveProxies.length) {
         return proxyTarget[propKey];
       }
 

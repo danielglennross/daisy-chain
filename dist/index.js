@@ -6,7 +6,7 @@ function daisyChain(proxies, target, prop) {
         get: function (proxyTarget, propKey) {
             var serviceProxies = this.serviceProxies.reverse();
             var effectiveProxies = serviceProxies.filter(function (s) { return Boolean(s[propKey]); });
-            if (!proxies.length) {
+            if (!effectiveProxies.length) {
                 return proxyTarget[propKey];
             }
             return function wrapper() {
@@ -26,5 +26,5 @@ function daisyChain(proxies, target, prop) {
     var targetObj = prop ? target[prop] : target;
     return new Proxy(targetObj, handler);
 }
-exports.default = daisyChain;
+exports.daisyChain = daisyChain;
 //# sourceMappingURL=index.js.map
