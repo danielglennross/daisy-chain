@@ -1,29 +1,30 @@
 'use strict';
 Object.defineProperty(exports, "__esModule", { value: true });
-function daisyChain(proxies, obj, prop) {
+function daisyChain(proxies, target, prop) {
     var handler = {
         serviceProxies: proxies,
-        get: function (target, propKey) {
+        get: function (proxyTarget, propKey) {
             var serviceProxies = this.serviceProxies.reverse();
             var effectiveProxies = serviceProxies.filter(function (s) { return Boolean(s[propKey]); });
             if (!proxies.length) {
-                return target[propKey];
+                return proxyTarget[propKey];
             }
             return function wrapper() {
                 var args = [];
                 for (var _i = 0; _i < arguments.length; _i++) {
                     args[_i] = arguments[_i];
                 }
-                var chain = effectiveProxies.reduce(function (baseFunc, currentService) {
-                    return (_a = currentService[propKey]).bind.apply(_a, [currentService,
+                var chain = effectiveProxies.reduce(function (baseFunc, currentProxy) {
+                    return (_a = currentProxy[propKey]).bind.apply(_a, [currentProxy,
                         baseFunc].concat(args));
                     var _a;
-                }, target[propKey].bind(obj));
+                }, proxyTarget[propKey].bind(target));
                 return chain();
             };
         },
     };
-    return new Proxy(prop ? obj[prop] : obj, handler);
+    var targetObj = prop ? target[prop] : target;
+    return new Proxy(targetObj, handler);
 }
-exports.daisyChain = daisyChain;
+exports.default = daisyChain;
 //# sourceMappingURL=index.js.map

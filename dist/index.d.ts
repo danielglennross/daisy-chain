@@ -1,1 +1,1 @@
-export declare function daisyChain(proxies: Array<Object>, obj: Object, prop?: string): Object;
+export default function daisyChain<P, T>(proxies: P[], target: T, prop?: string): T;
