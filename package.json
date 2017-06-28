@@ -1,12 +1,12 @@
 {
   "name": "daisy-chain",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Create a pipeline of proxy objects that will wrap over a target object.",
   "main": "dist/index.js",
   "scripts": {
     "compile": "tsc --sourcemap",
     "lint": "tslint index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha -r ts-node/register test/**/*.spec.ts"
   },
   "repository": {
     "type": "git",
@@ -19,8 +19,12 @@
   },
   "homepage": "https://github.com/danielglennross/daisy-chain#readme",
   "devDependencies": {
+    "chai": "^4.0.2",
+    "mocha": "^3.4.2",
+    "ts-node": "^3.1.0",
     "tslint": "^5.4.3",
-    "typescript": "^2.3.4"
+    "typescript": "^2.3.4",
+    "typings": "^2.1.1"
   },
   "typings": "dist/index.d.ts",
   "typescript": {

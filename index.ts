@@ -12,7 +12,7 @@ export function daisyChain<P, T>(
 
       // proxied services are ordered by intended execution
       // (we need to chain them in reverse order)
-      const serviceProxies: Array<P> = this.serviceProxies.reverse();
+      const serviceProxies: P[] = this.serviceProxies.reverse();
 
       // find proxies for the intended method
       const effectiveProxies = serviceProxies.filter(s => Boolean(s[propKey]));
